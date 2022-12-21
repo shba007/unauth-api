@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "engines": {
+    "node": ">=18 <19"
+  },
+  "scripts": {
+    "dev": "nitropack dev",
+    "build": "nitropack build"
+  },
+  "devDependencies": {
+    "nitropack": "^1.0.0"
+  }
+}
