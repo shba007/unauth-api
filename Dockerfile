@@ -2,26 +2,30 @@ FROM node:lts-alpine AS builder
 
 WORKDIR /app
 
-COPY package.json package-lock.json prisma ./
+COPY package.json pnpm-lock.yaml prisma ./
 
-RUN npm ci
+RUN corepack enable
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
 COPY . .
 
-ENV NODE_ENV=production
+RUN pnpm build
 
-RUN npm run build
-
-FROM node:lts-alpine AS deployer
+FROM node:lts-alpine AS runner
 
 ARG VERSION
+ARG BUILD_TIME
 
 WORKDIR /app
 
 COPY --from=builder /app/.output ./.output
 
 ENV NODE_ENV=production
-ENV NITRO_APP_VERSION=$VERSION
+ENV NUXT_APP_VERSION=$VERSION
 
 EXPOSE 3000
 

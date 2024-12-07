@@ -7,7 +7,7 @@ interface SMSResponse {
 export async function sendOTP(otp: number, phone: number | number[]) {
   const config = useRuntimeConfig()
 
-  return await ofetch<SMSResponse>('https://www.fast2sms.com/dev/bulkV2', {
+  return await $fetch<SMSResponse>('https://www.fast2sms.com/dev/bulkV2', {
     method: 'GET',
     query: {
       authorization: config.smsSecret,

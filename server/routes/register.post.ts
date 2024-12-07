@@ -32,7 +32,7 @@ export default defineProtectedEventHandler<Omit<AuthResponse, 'user'>>(async (ev
     console.log({ user: payload })
 
     // create new account
-    const response = await ofetch('/user/webhook', {
+    const response = await $fetch('/user/webhook', {
       baseURL: mapURL(config.apiUrl, config.apiUrl, event),
       method: 'POST',
       headers: {

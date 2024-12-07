@@ -17,7 +17,7 @@ export default defineProtectedEventHandler<AuthResponse>(async (event, user) => 
     if (new Date(phoneStatus.otpTimeout).getTime() < new Date().getTime()) throw createError({ statusCode: 400, statusMessage: 'OTP expired' })
 
     const payload = { phone: user.phone }
-    const response = await ofetch('/user/webhook', {
+    const response = await $fetch('/user/webhook', {
       baseURL: mapURL(config.apiUrl, config.apiUrl, event),
       method: 'GET',
       headers: {

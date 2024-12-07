@@ -13,7 +13,7 @@ export default defineEventHandler<AuthResponse>(async (event) => {
 
     try {
       const payload = { email: OAuthUser.email }
-      const user = await ofetch('/user/webhook', {
+      const user = await $fetch('/user/webhook', {
         baseURL: mapURL(config.apiUrl, config.apiUrl, event),
         method: 'GET',
         headers: {

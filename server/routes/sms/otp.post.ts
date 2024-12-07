@@ -48,7 +48,7 @@ export default defineEventHandler<Omit<AuthResponse, 'user'>>(async (event) => {
       try {
         // Check if user phone number already exists
         const payload = { phone: phone }
-        const response = await ofetch('/user/webhook', {
+        const response = await $fetchs('/user/webhook', {
           baseURL: mapURL(config.apiUrl, config.apiUrl, event),
           method: 'GET',
           headers: {

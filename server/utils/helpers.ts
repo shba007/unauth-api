@@ -56,7 +56,7 @@ export async function getGoogleUser({ code, client_id, client_secret, redirect_u
   let response, access_token, id_token
 
   try {
-    response = await ofetch<GoogleTokensResult>('https://oauth2.googleapis.com/token', {
+    response = await $fetch<GoogleTokensResult>('https://oauth2.googleapis.com/token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: qs.toString(),
@@ -65,7 +65,7 @@ export async function getGoogleUser({ code, client_id, client_secret, redirect_u
     access_token = response.access_token
     id_token = response.id_token
 
-    response = await ofetch<GoogleUserResult>(`https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${access_token}`, {
+    response = await $fetch<GoogleUserResult>(`https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${access_token}`, {
       method: 'GET',
       headers: { Authorization: `Bearer ${id_token}` },
     })
