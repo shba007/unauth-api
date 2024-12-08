@@ -1,6 +1,6 @@
 {
   "name": "api-auth",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Global REST API Authentication Service",
   "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
   "license": "MIT",
