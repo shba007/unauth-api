@@ -4,7 +4,7 @@
 
 # Auth Service
 
-> Global Auth Service
+> Global REST API Authentication Service
 
 <p align="center">
   <a href="https://uptime.betterstack.com/?utm_source=status_badge">
