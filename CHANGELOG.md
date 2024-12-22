@@ -1,5 +1,11 @@
 # auth-service
 
+## 0.3.3
+
+### Patch Changes
+
+- 5d73156: chore: update project configuration and improve code quality
+
 ## 0.3.2
 
 ### Patch Changes
