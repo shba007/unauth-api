@@ -17,7 +17,7 @@ export default defineEventHandler<Omit<AuthResponse, 'user'>>(async (event) => {
 
   let phoneStatus = (await storage.getItem(`phone:${phone}`)) as PhoneStatus
   // Handle all Errors
-  if (phoneStatus && new Date(phoneStatus.retryTimeout).getTime() > new Date().getTime()) {
+  if (phoneStatus && new Date(phoneStatus.retryTimeout).getTime() > Date.now()) {
     // TODO: Send a security alert
     throw createError({ statusCode: 400, statusMessage: 'Retry not expired' })
   }
@@ -27,7 +27,7 @@ export default defineEventHandler<Omit<AuthResponse, 'user'>>(async (event) => {
     const token = authHeader && authHeader.split(' ')[1]
     let user: { id: string; phone: string }
 
-    if (!!token) {
+    if (token) {
       const payload = JWT.verify(token, config.authSecret) as { id: string }
       user = (await storage.getItem(`user:${payload.id}`)) as {
         id: string
@@ -58,7 +58,7 @@ export default defineEventHandler<Omit<AuthResponse, 'user'>>(async (event) => {
         })
 
         isUserFound = true
-      } catch (error) {
+      } catch {
         isUserFound = false
       }
     }
@@ -71,10 +71,10 @@ export default defineEventHandler<Omit<AuthResponse, 'user'>>(async (event) => {
     let otp: number | undefined
     /* For Test Credentials */
     if (phone === config.testPhone) {
-      otp = parseInt(config.testOTP)
+      otp = Number.parseInt(config.testOTP)
     } else {
       otp = generateOTP()
-      if (config.smsSend) await sendOTP(otp, parseInt(phone))
+      if (config.smsSend) await sendOTP(otp, Number.parseInt(phone))
     }
 
     const retryCount = phoneStatus == null ? 0 : ++phoneStatus.retryCount

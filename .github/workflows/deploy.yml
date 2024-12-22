@@ -1,4 +1,4 @@
-name: Nuxt CD
+name: Nitro CD
 run-name: ${{ github.ref_name }}
 
 on:
@@ -19,7 +19,7 @@ env:
   NITRO_PRESET: ${{ vars.NITRO_PRESET }}
 
 jobs:
-  build_web:
+  build:
     runs-on: ubuntu-latest
 
     permissions:
@@ -91,8 +91,8 @@ jobs:
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: false
 
-  deploy_web:
-    needs: build_web
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:

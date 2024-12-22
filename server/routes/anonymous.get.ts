@@ -1,4 +1,4 @@
-import { randomUUID } from 'crypto'
+import { randomUUID } from 'node:crypto'
 
 export default defineEventHandler<Promise<{ accessToken: string; refreshToken: string }>>(async (event) => {
   try {

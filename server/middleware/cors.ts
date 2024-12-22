@@ -9,7 +9,7 @@ export default defineEventHandler((event) => {
 
   setResponseHeaders(event, {
     'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    'Access-Control-Allow-Origin': selectedOrigin !== -1 ? origins[selectedOrigin] : origins[0],
+    'Access-Control-Allow-Origin': selectedOrigin === -1 ? origins[0] : origins[selectedOrigin],
     'Access-Control-Allow-Credentials': 'true',
     'Access-Control-Allow-Headers': '*',
     'Access-Control-Expose-Headers': '*',

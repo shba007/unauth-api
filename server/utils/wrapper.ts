@@ -30,16 +30,17 @@ export function defineProtectedEventHandler<T>(handler: (event: CompatibilityEve
 
         return handler(event, user)
       } catch (error) {
-        if (error instanceof JWT.TokenExpiredError)
-          throw createError({
-            statusCode: 401,
-            statusMessage: 'Token Expired',
-          })
-        else
-          throw createError({
-            statusCode: 498,
-            statusMessage: 'Invalid Token',
-          })
+        const error_ =
+          error instanceof JWT.TokenExpiredError
+            ? createError({
+                statusCode: 401,
+                statusMessage: 'Token Expired',
+              })
+            : createError({
+                statusCode: 498,
+                statusMessage: 'Invalid Token',
+              })
+        throw error_
       }
     } catch (error: any) {
       sendError(event, error)

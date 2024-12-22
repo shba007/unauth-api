@@ -1,4 +1,5 @@
 import { createHmac } from 'node:crypto'
+import { $fetch } from 'ofetch'
 import JWT from 'jsonwebtoken'
 
 interface GoogleTokensResult {
@@ -53,33 +54,25 @@ export async function getGoogleUser({ code, client_id, client_secret, redirect_u
   }
 
   const qs = new URLSearchParams(values)
-  let response, access_token, id_token
 
-  try {
-    response = await $fetch<GoogleTokensResult>('https://oauth2.googleapis.com/token', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: qs.toString(),
-    })
+  const { access_token, id_token } = await $fetch<GoogleTokensResult>('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: qs.toString(),
+  })
 
-    access_token = response.access_token
-    id_token = response.id_token
+  const response = await $fetch<GoogleUserResult>(`https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${access_token}`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${id_token}` },
+  })
 
-    response = await $fetch<GoogleUserResult>(`https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${access_token}`, {
-      method: 'GET',
-      headers: { Authorization: `Bearer ${id_token}` },
-    })
-
-    return response
-  } catch (error) {
-    throw error
-  }
+  return response
 }
 
 export function addTimeToNow({ days = 0, hour = 0, minute = 0, second = 0 }: { days?: number; hour?: number; minute?: number; second?: number }): string {
   const millisecond = (((days * 24 + hour) * 60 + minute) * 60 + second) * 1000
 
-  return new Date(new Date().getTime() + millisecond).toISOString().slice(0, -5) + 'Z'
+  return new Date(Date.now() + millisecond).toISOString().slice(0, -5) + 'Z'
 }
 
 enum TokenType {
@@ -90,8 +83,7 @@ enum TokenType {
 
 export function createJWTToken(type: 'auth' | 'refresh' | 'access', id: string, secret: string) {
   const expiresIn = TokenType[type]
-  if (expiresIn.length) return JWT.sign({ id }, secret, { expiresIn })
-  else return JWT.sign({ id }, secret)
+  return expiresIn.length > 0 ? JWT.sign({ id }, secret, { expiresIn }) : JWT.sign({ id }, secret)
 }
 
 export function mapURL(dict: any, urlMap: any, event: any) {
@@ -99,5 +91,5 @@ export function mapURL(dict: any, urlMap: any, event: any) {
 
   const type = Object.keys(urlMap).find((key) => urlMap[key] === `${origin}/api`)
 
-  return JSON.parse(JSON.stringify(dict))[type]
+  return structuredClone(dict)[type]
 }

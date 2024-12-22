@@ -8,8 +8,7 @@ enum TokenType {
 
 export function createJWTToken(type: 'auth' | 'refresh' | 'access', id: string, secret: string) {
   const expiresIn = TokenType[type]
-  if (expiresIn.length) return JWT.sign({ id }, secret, { expiresIn })
-  else return JWT.sign({ id }, secret)
+  return expiresIn.length > 0 ? JWT.sign({ id }, secret, { expiresIn }) : JWT.sign({ id }, secret)
 }
 
 const user = {

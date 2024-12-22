@@ -13,13 +13,13 @@ export async function sendOTP(otp: number, phone: number | number[]) {
       authorization: config.smsSecret,
       variables_values: otp.toString(),
       route: 'otp',
-      numbers: Array.isArray(phone) ? phone.join() : phone.toString(),
+      numbers: Array.isArray(phone) ? phone.join(',') : phone.toString(),
     },
   })
 }
 
 export function generateOTP(digits = 6) {
-  const min = parseInt(`1${'0'.repeat(digits - 1)}`)
-  const max = parseInt('9'.repeat(digits))
+  const min = Number.parseInt(`1${'0'.repeat(digits - 1)}`)
+  const max = Number.parseInt('9'.repeat(digits))
   return Math.floor(Math.random() * (max - min + 1)) + min
 }

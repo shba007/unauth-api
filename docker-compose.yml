@@ -1,0 +1,8 @@
+name: 'unauth'
+services:
+  api:
+    image: 'ghcr.io/shba007/unauth-api:latest'
+    env_file:
+      - .env.prod
+    ports:
+      - 2210:3000

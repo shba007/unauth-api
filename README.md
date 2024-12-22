@@ -2,7 +2,7 @@
   <img src="./public/logo.png" lt="Logo" width="80" />
 <p>
 
-# Auth Service
+# UnAuth API
 
 > Global REST API Authentication Service
 
@@ -15,5 +15,4 @@
 # TODO
 
 - Rate Limiting
-- Captcha
 - Maintain blocklist
