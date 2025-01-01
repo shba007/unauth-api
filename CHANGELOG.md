@@ -1,5 +1,11 @@
 # auth-service
 
+## 0.3.4
+
+### Patch Changes
+
+- 6d9ce72: chore: update ignore files and Dockerfile for improved build process
+
 ## 0.3.3
 
 ### Patch Changes
