@@ -1,15 +1,16 @@
 FROM node:lts-alpine AS builder
 
-RUN corepack enable
-
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml prisma ./
+RUN corepack enable
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+COPY package.json pnpm-lock.yaml ./
+COPY nitro.config.ts prisma ./
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --production
 
 COPY . .
 
@@ -21,7 +22,7 @@ ARG VERSION
 ARG BUILD_TIME
 
 ENV NODE_ENV=production
-ENV NUXT_APP_VERSION=$VERSION
+ENV NITRO_APP_VERSION=$VERSION
 
 WORKDIR /app
 
