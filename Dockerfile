@@ -5,7 +5,7 @@ ENV PATH="$PNPM_HOME:$PATH"
 
 WORKDIR /app
 
-RUN corepack enable
+RUN npm i -g pnpm
 
 COPY package.json pnpm-lock.yaml ./
 COPY nitro.config.ts prisma ./
