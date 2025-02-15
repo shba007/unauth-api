@@ -1,5 +1,11 @@
 # auth-service
 
+## 0.3.5
+
+### Patch Changes
+
+- 8dbaa0d: chore: update environment file handling and dependencies in Docker and package configuration
+
 ## 0.3.4
 
 ### Patch Changes
