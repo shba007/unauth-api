@@ -1,5 +1,11 @@
 # auth-service
 
+## 0.3.6
+
+### Patch Changes
+
+- f45ef0a: chore: update pnpm setup and dependencies in workflow and package.json
+
 ## 0.3.5
 
 ### Patch Changes
