@@ -1,5 +1,17 @@
 # auth-service
 
+## v0.3.7
+
+[compare changes](https://github.com/shba007/unauth-api/compare/v0.3.6...v0.3.7)
+
+### 💅 Refactors
+
+- Changeset -> changelogen, node -> bun, docker compose -> docker swarm ([a6bedde](https://github.com/shba007/unauth-api/commit/a6bedde))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## 0.3.6
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "unauth-api",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Global REST API Authentication Service",
   "author": "Shirsendu Bairagi <shirsendu2001@gmail.com>",
   "license": "MIT",
