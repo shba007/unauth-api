@@ -1,13 +1,16 @@
+# Code Editor File
+.vs
+.vscode
+
 # Git/Github
 .git
 .github
-.gitignore
 
 # Nitro dev/build outputs
-.data
-.output
-.nitro
 .cache
+.data
+.nitro
+.output
 dist
 
 # Node dependencies

@@ -1,7 +1,7 @@
-name: 'unauth'
+name: 'unauth-dev'
 services:
   api:
-    image: 'ghcr.io/shba007/unauth-api:latest'
+    build: .
     restart: on-failure:3
     env_file:
       - .env.prod

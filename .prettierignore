@@ -1,8 +1,8 @@
 # Nitro dev/build outputs
-.data
-.output
-.nitro
 .cache
+.data
+.nitro
+.output
 dist
 
 # Node dependencies
@@ -10,7 +10,7 @@ node_modules
 
 # Package Manager
 package.json
-pnpm-lock.yaml
+bun.lock
 
 # Logs
 logs
