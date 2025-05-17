@@ -6,7 +6,6 @@ COPY package.json bun.lock ./
 COPY nitro.config.ts prisma ./
 
 ENV NITRO_PRESET=bun
-ENV NUXT_PUBLIC_SITE_URL=$SITE_URL
 
 RUN bun install --frozen-lockfile
 
@@ -24,7 +23,7 @@ WORKDIR /app
 COPY --from=builder /app/.output ./.output
 
 ENV NODE_ENV=production
-ENV NUXT_APP_VERSION=$VERSION
+ENV NITRO_APP_VERSION=$VERSION
 
 EXPOSE 3000
 
