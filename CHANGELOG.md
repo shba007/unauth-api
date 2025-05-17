@@ -1,5 +1,21 @@
 # auth-service
 
+## v0.3.8
+
+[compare changes](https://github.com/shba007/unauth-api/compare/v0.3.7...v0.3.8)
+
+### 🚀 Enhancements
+
+- Add authentication and user management routes, update ignore files for Prisma ([59fdd7b](https://github.com/shba007/unauth-api/commit/59fdd7b))
+
+### 🩹 Fixes
+
+- Remove unused environment variable and correct NUXT_APP_VERSION to NITRO_APP_VERSION ([cd540df](https://github.com/shba007/unauth-api/commit/cd540df))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.3.7
 
 [compare changes](https://github.com/shba007/unauth-api/compare/v0.3.6...v0.3.7)
