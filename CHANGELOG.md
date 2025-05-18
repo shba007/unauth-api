@@ -1,5 +1,17 @@
 # auth-service
 
+## v0.3.9
+
+[compare changes](https://github.com/shba007/unauth-api/compare/v0.3.8...v0.3.9)
+
+### 🩹 Fixes
+
+- Update deployment command and improve pre-commit script; adjust CORS settings in Nitro config ([3d90c55](https://github.com/shba007/unauth-api/commit/3d90c55))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.3.8
 
 [compare changes](https://github.com/shba007/unauth-api/compare/v0.3.7...v0.3.8)
