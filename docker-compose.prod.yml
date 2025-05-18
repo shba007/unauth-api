@@ -1,7 +1,7 @@
-version: '3.9'
+version: 3.9
 services:
   api:
-    image: 'ghcr.io/shba007/unauth-api:latest'
+    image: ghcr.io/shba007/unauth-api:latest
     env_file:
       - .env.prod
     ports:

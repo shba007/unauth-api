@@ -2,7 +2,7 @@ export default defineNitroConfig({
   compatibilityDate: '2024-12-05',
   srcDir: 'server',
   routeRules: {
-    '/api/**': { cors: true },
+    '/**': { cors: true },
   },
   storage: {
     db: {
@@ -15,7 +15,6 @@ export default defineNitroConfig({
       version: '',
     },
     apiUrl: '',
-    corsUrl: '',
     authAccessSecret: '',
     authRefreshSecret: '',
     authSecret: '',
