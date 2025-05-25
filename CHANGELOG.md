@@ -1,5 +1,21 @@
 # auth-service
 
+## v0.3.10
+
+[compare changes](https://github.com/shba007/unauth-api/compare/v0.3.9...v0.3.10)
+
+### 🚀 Enhancements
+
+- Implement JWT token handling and refresh logic; update dependencies and fix deployment script ([7d0370a](https://github.com/shba007/unauth-api/commit/7d0370a))
+
+### 🩹 Fixes
+
+- [skip ci] correct version formatting in docker-compose file ([1dffc20](https://github.com/shba007/unauth-api/commit/1dffc20))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.3.9
 
 [compare changes](https://github.com/shba007/unauth-api/compare/v0.3.8...v0.3.9)
