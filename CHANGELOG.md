@@ -1,5 +1,17 @@
 # auth-service
 
+## v0.3.11
+
+[compare changes](https://github.com/shba007/unauth-api/compare/v0.3.10...v0.3.11)
+
+### 🚀 Enhancements
+
+- Add JWT token refresh endpoint with error handling ([66deff7](https://github.com/shba007/unauth-api/commit/66deff7))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.3.10
 
 [compare changes](https://github.com/shba007/unauth-api/compare/v0.3.9...v0.3.10)
