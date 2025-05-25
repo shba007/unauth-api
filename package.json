@@ -15,7 +15,7 @@
     "pnpm": "^9.15.0 || ^10.2.0",
     "bun": "^1.2.9"
   },
-  "packageManager": "bun@1.2.13",
+  "packageManager": "bun@1.2.14",
   "scripts": {
     "prepare": "husky || true",
     "postinstall": "nitro prepare && prisma generate",
@@ -32,18 +32,18 @@
     "tunnel": "untun tunnel --port 2210 http://localhost:2210"
   },
   "dependencies": {
-    "@prisma/client": "^6.6.0",
+    "@prisma/client": "^6.8.2",
     "jsonwebtoken": "^9.0.2",
-    "nitropack": "^2.11.9",
+    "nitropack": "^2.11.12",
     "ofetch": "^1.4.1",
-    "prisma": "^6.6.0"
+    "prisma": "^6.8.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@types/jsonwebtoken": "^9.0.9",
-    "eslint": "^9.24.0",
-    "eslint-config-prettier": "^10.1.2",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
     "eslint-config-unjs": "^0.4.2",
     "husky": "^9.1.7",
     "prettier": "^3.5.3",
