@@ -1,5 +1,17 @@
 # auth-service
 
+## v0.3.12
+
+[compare changes](https://github.com/shba007/unauth-api/compare/v0.3.11...v0.3.12)
+
+### 🏡 Chore
+
+- Update package dependencies and package manager version ([d799c23](https://github.com/shba007/unauth-api/commit/d799c23))
+
+### ❤️ Contributors
+
+- Shba007 ([@shba007](https://github.com/shba007))
+
 ## v0.3.11
 
 [compare changes](https://github.com/shba007/unauth-api/compare/v0.3.10...v0.3.11)
